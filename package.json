@@ -1,0 +1,61 @@
+{
+  "name": "naveenshaw-personal-website",
+  "description": "Naveen Shaw - Personal Website",
+  "version": "1.0.0",
+  "author": "Naveen Shaw",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.10.7",
+    "gatsby": "^2.20.36",
+    "gatsby-image": "^2.3.5",
+    "gatsby-plugin-manifest": "^2.3.7",
+    "gatsby-plugin-netlify": "^2.2.4",
+    "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-react-helmet": "^3.2.5",
+    "gatsby-plugin-sharp": "^2.5.7",
+    "gatsby-plugin-styled-components": "^3.2.4",
+    "gatsby-remark-prismjs": "^3.4.5",
+    "gatsby-source-filesystem": "^2.2.5",
+    "gatsby-transformer-remark": "^2.7.5",
+    "gatsby-transformer-sharp": "^2.4.7",
+    "gatsby-transformer-yaml": "^2.3.4",
+    "prismjs": "^1.20.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^5.2.1",
+    "react-spring": "^8.0.27",
+    "styled-components": "^4.4.1",
+    "typeface-cantata-one": "^0.0.72",
+    "typeface-open-sans": "^0.0.75"
+  },
+  "scripts": {
+    "dev": "gatsby develop -o",
+    "develop": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "build": "gatsby build",
+    "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
+    "lint:ci": "yarn lint --format junit -o results/eslint/result.xml"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
+    "gh-pages": "2.2.0",
+    "prettier": "^1.19.1"
+  },
+  "repository": {
+    "url": "https://github.com/naveenshaw/naveenshaw.github.io",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/naveenshaw/naveenshaw.github.io/issues"
+  },
+  "homepage": "https://barkmin.eu"
+}
