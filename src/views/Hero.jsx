@@ -26,7 +26,7 @@ const Hero = () => (
       <Avatar src={avatar} alt="Naveen Shaw" />
       <Subtitle>
         I'm a passionate{' '}
-        <a rel="noreferrer" href="https://github.com/mikebarkmin">
+        <a rel="noreferrer" href="https://github.com/naveen666">
           developer
         </a>{' '}
         and{' '}

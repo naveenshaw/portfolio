@@ -14,10 +14,10 @@ const Contact = () => (
     <Inner>
       <Title>Get in touch</Title>
       <ContactText>
-        Send me an <a href="mailto:mike@barkmin.eu">E-Mail</a> or say Hi to me
+        Send me an <a href="mailto:naveen.sujal666@gmail.com">E-Mail</a> or say Hi to me
         on{' '}
-        <a rel="noreferrer" href="https://twitter.com/mikebarkmin">
-          Twitter
+        <a rel="noreferrer" href="https://facebook.com/naveenshaw1998">
+          Facebook
         </a>
       </ContactText>
     </Inner>
