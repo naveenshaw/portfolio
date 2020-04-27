@@ -11,7 +11,7 @@ const Wrapper = styled.footer`
 function Footer() {
   return (
     <Wrapper>
-      &copy; 2019 by Mike Barkmin.{' '}
+      &copy;2020 | Made with &#10084;&#65039; Naveen Shaw.{' '}
       <a
         rel="noreferrer"
         href="https://github.com/mikebarkmin/mikebarkmin.github.io"
