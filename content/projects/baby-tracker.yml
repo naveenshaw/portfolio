@@ -1,9 +1,9 @@
 pin: true
-name: Baby Tracker
-description: A progressive web app to track your baby and share the data with your family in real-time.
-link: https://github.com/mikebarkmin/baby-tracker
+name: jigyasa
+description: A progressive web app to organize quiz.
+link: https://github.com/naveen666/jigyasa
 tags:
-  - react
-  - express
-  - socket.io
+  - Python
+  - Django
+  - Web Development
 
