@@ -1,5 +1,6 @@
-backend:github
-   name:naveenshaw/portfolio 
+backend:
+  name: github
+  repo: naveenshaw/portfolio
 
 media_folder: static/assets
 public_folder: /assets
