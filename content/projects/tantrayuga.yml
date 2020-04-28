@@ -1,0 +1,9 @@
+pin: true
+name: TantraYuga
+description: A Responsive portfolio and blogging web app .
+link: https://tantrayuga.herokuapp.com
+tags:
+  - Python
+  - Django
+  - Web Development
+  - CMS Essentials
