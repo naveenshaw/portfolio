@@ -1,14 +1,15 @@
 pin: true
 authors:
-  - Naveen Shaw.
- 
-title: MINDEYE 
-subtitle: position as Field Intern
-booktitle: 
-series: 
+  - Kramer, M.
+  - Barkmin, M.
+  - Brinda, T.
+title: Identifying Predictors for Code Highlighting Skills
+subtitle: A regressional analysis of knowledge, syntax abilities and highlighting skills
+booktitle: Proceedings of the 2019 ACM Conference on Innovation and Technology in Computer Science Education
+series: "ITiCSE '19"
 year: 2019
-location: Kolkata,West Bengal
-publisher: 
-address: West Bengal ,India
-presentation: 
-paper: 
+location: Aberdeen, Scotland UK
+publisher: ACM
+address: New York, NY, USA
+presentation: /files/publications/2019-iticse-presentation.pdf
+paper: https://dl.acm.org/authorize?N680559
