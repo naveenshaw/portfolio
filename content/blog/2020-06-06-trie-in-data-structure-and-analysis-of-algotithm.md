@@ -33,8 +33,6 @@ The original idea behind using tries as a computing structure was that they coul
 
 ![size of a trie correlates to the size of the alphabet it represents.](/img/2.jpeg "The size of a trie correlates to the size of the alphabet it represents.")
 
-
-
 We know that tries are often used to represent words in an alphabet. In the illustration shown here, we can start to get a sense of how exactly that representation works.
 
 *Each trie has an empty root node, with links (or references) to other nodes — one for each possible alphabetic value.*
@@ -42,8 +40,6 @@ We know that tries are often used to represent words in an alphabet. In the illu
 The shape and the structure of a trie is always a set of linked nodes, connecting back to an empty root node. An important thing to note is that the number of child nodes in a trie depends completely upon the total number of values possible. For example, if we are representing the English alphabet, then the total number of child nodes is directly connected to the total number of letters possible. In the English alphabet, there are 26 letters, so the total number of child nodes will be 26.
 
 Imagine, however, that we were creating a trie to hold words from the Khmer (Cambodian) alphabet, which is the [longest known alphabet](http://www.guinnessworldrecords.com/world-records/longest-alphabet) with 74 characters. In that case, the root node would contain 74 links to 74 other child nodes.
-
-
 
 > The size of a trie is directly correlated to the size of all the possible values that the trie could represent.
 
@@ -80,12 +76,12 @@ Looking at our trie, we can see that we have an empty root node, as is typical f
 
 To make this trie easier to look at, I’ve only drawn the references that actually have nodes in them; it’s important to remember that, even though they’re not illustrated here, every single node has 26 references to possible child nodes.
 
-Notice how there are six different “branches” to this trie, one for each word that’s being represented. We can also see that some words are sharing parent nodes. For example, all of the branches for the words `Peter`,`peck`, and `peppers `share the nodes for `p `and for`e`. Similarly, the path to the word `picked `and `pickled `share the nodes `p`,`i`,`c`, and `k`.
+Notice how there are six different “branches” to this trie, one for each word that’s being represented. We can also see that some words are sharing parent nodes. For example, all of the branches for the words `Peter`,`peck`, and `peppers`share the nodes for `p`and for`e`. Similarly, the path to the word `picked`and `pickled`share the nodes `p`,`i`,`c`, and `k`.
 
-So, what if we wanted to add the word  `pecked `to this list of words represented by this trie? We’d need to do two things in order to make this happen:
+So, what if we wanted to add the word  `pecked`to this list of words represented by this trie? We’d need to do two things in order to make this happen:
 
-1. First, we’d need to check that the word `pecked `doesn’t already exist in this trie.
-2. Next, if we’ve traversed down the branch where this word *ought* to live and the words doesn’t exist yet, we’d insert a value into the node’s reference where the word should go. In this case, we’d  insert `e `and `d  `at the correct references.
+1. First, we’d need to check that the word `pecked`doesn’t already exist in this trie.
+2. Next, if we’ve traversed down the branch where this word *ought* to live and the words doesn’t exist yet, we’d insert a value into the node’s reference where the word should go. In this case, we’d  insert `e`and `d`at the correct references.
 
 But how do we actually go about checking if the word exists? And h*ow* do we insert the letters into their correct places? This is easier to understand with a small trie as an example, so let’s look at a trie that is empty, and try inserting something into it.
 
@@ -95,9 +91,9 @@ We know that we’ll have an empty root node, which will have a value of`""`, an
 
 We’ll work our way through the key, using each letter to build up our trie and add nodes as necessary.
 
-We’ll first look for the pointer for `p`, since the first letter in our key`"pie" `is `p`. Since this trie doesn’t have anything in just yet, the reference at`p`in our root node will be `null`. So, we’ll create a new node for `p`, and the root node now has an array with 25 empty slots, and 1 slot (at index `15`) that contains a reference to a node.
+We’ll first look for the pointer for `p`, since the first letter in our key`"pie"`is `p`. Since this trie doesn’t have anything in just yet, the reference at`p`in our root node will be `null`. So, we’ll create a new node for `p`, and the root node now has an array with 25 empty slots, and 1 slot (at index `15`) that contains a reference to a node.
 
-Now we have a node at index `15`, holding the value for  `p`. But, our string is`"pie"`, so we’re not done yet. We’ll do the same thing for this node: check if there is a null pointer at the next letter of the key:`i`. Since we encounter another null link for the reference at`i`, we’ll create another new node. Finally, we’re at the last character of our key: the `e `in `"pie"`. We create a new node for the array reference to`e`, and inside of this  *third* node that we’ve created, we’ll set our value:`5`.
+Now we have a node at index `15`, holding the value for  `p`. But, our string is`"pie"`, so we’re not done yet. We’ll do the same thing for this node: check if there is a null pointer at the next letter of the key:`i`. Since we encounter another null link for the reference at`i`, we’ll create another new node. Finally, we’re at the last character of our key: the `e`in `"pie"`. We create a new node for the array reference to`e`, and inside of this  *third* node that we’ve created, we’ll set our value:`5`.
 
 In the future, if we want to retrieve the value for the key`"pie"`, we’ll traverse down from one array to another, using the indices to go from the nodes  `p`, to `i`, to`e`; when we get to the node at the index for`e`, we’ll stop traversing, and retrieve the value from that node, which will be `5.`
 
@@ -107,7 +103,7 @@ Let’s actually take a look at what searching through our newly-built trie woul
 
 In the illustration shown here, if we search for the key`"pie"`, we traverse down each node’s array, and look to see if there is a value for the branch path:`p-i-e`. If it *does* have a value, we can simply return it. This is sometimes referred to as a ***search hit***, since we were able to find a value for the key.
 
-But what if we search for something that doesn’t exist in our trie? What if we search for the word`"pi"`, which we haven’t added as a key with a value? Well, we’ll go from the root node to the node at index `p`, and then we’ll go from the node at `p `to the node at index `i`. When we get to this point, we’ll see if the node at the branch path `p-i `has a value. In this case, it doesn’t have a value; it’s pointing at `null`. So, we can be sure that the key`"pi"`doesn’t exist in our trie as a string with a value. This is often referred to as a ***search miss***, since we could not find a value for the key.
+But what if we search for something that doesn’t exist in our trie? What if we search for the word`"pi"`, which we haven’t added as a key with a value? Well, we’ll go from the root node to the node at index `p`, and then we’ll go from the node at `p`to the node at index `i`. When we get to this point, we’ll see if the node at the branch path `p-i`has a value. In this case, it doesn’t have a value; it’s pointing at `null`. So, we can be sure that the key`"pi"`doesn’t exist in our trie as a string with a value. This is often referred to as a ***search miss***, since we could not find a value for the key.
 
 Finally, there’s one other action that we might want to do to our trie: delete things! How can we remove a key and its value from our trie structure? To illustrate this, I’ve added another word to our trie. We now have both the keys`"pie"`and`"pies"`, each with their own values. Let’s say we want to remove the key`"pies"`from our trie.
 
@@ -116,7 +112,7 @@ Finally, there’s one other action that we might want to do to our trie: delete
 \
 In order to do this, we’d need to take two steps:
 
-1. First, we need to find the node that contains the value for that key, and set its value to `null`. This means traversing down and finding the last letter of the word`"pies"`, and then resetting the value of the last node from `12 `to `null`.
+1. First, we need to find the node that contains the value for that key, and set its value to `null`. This means traversing down and finding the last letter of the word`"pies"`, and then resetting the value of the last node from `12`to `null`.
 2. Second, we need to check the node’s references and see if all of its pointers to other nodes are *also* `null`. If all of them are empty, that means that there are no other words/branches below this one, and they can all be removed. However, if there are pointers for other nodes that *do* have values, we don’t want to delete the node that we’ve just set to `null`.
 
 This last check is particularly important in order to not remove longer strings when we remove sub-strings of a word. But other than that single check, there’s nothing more to it!
@@ -131,7 +127,7 @@ As it turns out, both tries and hash tables are reminscient of one another becau
 
 There are quite a few minor differences between both of these two structures, but the most obvious difference between hash tables and tries is that a trie has no need for a [hash function](https://medium.com/basecs/hashing-out-hash-functions-ea5dd8beb4dd), because every key can be represented in order (alphabetically), and is uniquely retrievable since every branch path to a string’s value will be unique  *that* key. The side effect of this is that there are no collisions to deal with, and thus a relying on the index of an array is enough, and a hashing function is unnecessary.
 
-However, unlike hash tables, the downside of a trie is that is takes up a lot of memory and space with empty (`null`) pointers. We can imagine how a large trie would start grow in size, and with each node that was added, an entire array containing 26 `null `pointers would have to be initialized as well. For longer words, those empty references would probably never get filled up; for example, imagine we had a key “*[Honorificabilitudinitatibus](https://en.wikipedia.org/wiki/Honorificabilitudinitatibus)*”, with some value. That’s super long word, and we’re probably not going to be adding any other sub-branches to that word in the trie; that’s a bunch of empty pointers for each letter of that word that are taking up space, but not really ever being used!
+However, unlike hash tables, the downside of a trie is that is takes up a lot of memory and space with empty (`null`) pointers. We can imagine how a large trie would start grow in size, and with each node that was added, an entire array containing 26 `null`pointers would have to be initialized as well. For longer words, those empty references would probably never get filled up; for example, imagine we had a key “*[Honorificabilitudinitatibus](https://en.wikipedia.org/wiki/Honorificabilitudinitatibus)*”, with some value. That’s super long word, and we’re probably not going to be adding any other sub-branches to that word in the trie; that’s a bunch of empty pointers for each letter of that word that are taking up space, but not really ever being used!
 
 ![How tries changes as they grow](/img/9.jpeg "How tries changes as they grow")
 
@@ -159,6 +155,136 @@ Tries are also used for matching algorithms and implementing things like spellch
 
 > I suppose that if we trie hard enough, we’ll see that tries are all around us!
 
+### A program to implement search and insert operations on Trie.
+
+```c
+// C implementation of search and insert operations 
+// on Trie 
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <string.h> 
+#include <stdbool.h> 
+
+#define ARRAY_SIZE(a) sizeof(a)/sizeof(a[0]) 
+
+// Alphabet size (# of symbols) 
+#define ALPHABET_SIZE (26) 
+
+// Converts key current character into index 
+// use only 'a' through 'z' and lower case 
+#define CHAR_TO_INDEX(c) ((int)c - (int)'a') 
+
+// trie node 
+struct TrieNode 
+{ 
+	struct TrieNode *children[ALPHABET_SIZE]; 
+
+	// isEndOfWord is true if the node represents 
+	// end of a word 
+	bool isEndOfWord; 
+}; 
+
+// Returns new trie node (initialized to NULLs) 
+struct TrieNode *getNode(void) 
+{ 
+	struct TrieNode *pNode = NULL; 
+
+	pNode = (struct TrieNode *)malloc(sizeof(struct TrieNode)); 
+
+	if (pNode) 
+	{ 
+		int i; 
+
+		pNode->isEndOfWord = false; 
+
+		for (i = 0; i < ALPHABET_SIZE; i++) 
+			pNode->children[i] = NULL; 
+	} 
+
+	return pNode; 
+} 
+
+// If not present, inserts key into trie 
+// If the key is prefix of trie node, just marks leaf node 
+void insert(struct TrieNode *root, const char *key) 
+{ 
+	int level; 
+	int length = strlen(key); 
+	int index; 
+
+	struct TrieNode *pCrawl = root; 
+
+	for (level = 0; level < length; level++) 
+	{ 
+		index = CHAR_TO_INDEX(key[level]); 
+		if (!pCrawl->children[index]) 
+			pCrawl->children[index] = getNode(); 
+
+		pCrawl = pCrawl->children[index]; 
+	} 
+
+	// mark last node as leaf 
+	pCrawl->isEndOfWord = true; 
+} 
+
+// Returns true if key presents in trie, else false 
+bool search(struct TrieNode *root, const char *key) 
+{ 
+	int level; 
+	int length = strlen(key); 
+	int index; 
+	struct TrieNode *pCrawl = root; 
+
+	for (level = 0; level < length; level++) 
+	{ 
+		index = CHAR_TO_INDEX(key[level]); 
+
+		if (!pCrawl->children[index]) 
+			return false; 
+
+		pCrawl = pCrawl->children[index]; 
+	} 
+
+	return (pCrawl != NULL && pCrawl->isEndOfWord); 
+} 
+
+// Driver 
+int main() 
+{ 
+	// Input keys (use only 'a' through 'z' and lower case) 
+	char keys[][8] = {"the", "a", "there", "answer", "any", 
+					"by", "bye", "their"}; 
+
+	char output[][32] = {"Not present in trie", "Present in trie"}; 
+
+
+	struct TrieNode *root = getNode(); 
+
+	// Construct trie 
+	int i; 
+	for (i = 0; i < ARRAY_SIZE(keys); i++) 
+		insert(root, keys[i]); 
+
+	// Search for different keys 
+	printf("%s --- %s\n", "the", output[search(root, "the")] ); 
+	printf("%s --- %s\n", "these", output[search(root, "these")] ); 
+	printf("%s --- %s\n", "their", output[search(root, "their")] ); 
+	printf("%s --- %s\n", "thaw", output[search(root, "thaw")] ); 
+
+	return 0; 
+} 
+
+```
+
+### OUTPUT:
+
+```asp
+the --- Present in trie
+these --- Not present in trie
+their --- Present in trie
+thaw --- Not present in trie
+```
+
 # Resources
 
 Tries often show up in white boarding or technical interview questions, often in some variation of a question like “search for a string or substring from this sentence”. Given their unique ability to retrieve elements in constant time, they are often a great tool to use, and luckily, many people have written about them. If you want some helpful resources, here are a few good places to start.
@@ -170,6 +296,6 @@ Tries often show up in white boarding or technical interview questions, often in
 5. [Tries](http://ellard.org/dan/www/libsq/cb_1998/c06.pdf), Daniel Ellard
 6. [Tries](https://www.youtube.com/watch?v=TRg9DQFu0kU), Harvard CS50
 
-   ## **THANK YOU TO ALL FOR TOLERATING ME!** 
+   ## **THANK YOU TO ALL FOR TOLERATING ME!**
 
 [](https://medium.com/basecs?source=post_sidebar--------------------------post_sidebar-)
