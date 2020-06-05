@@ -273,7 +273,6 @@ int main()
 
 	return 0; 
 } 
-
 ```
 
 ### OUTPUT:
@@ -284,6 +283,10 @@ these --- Not present in trie
 their --- Present in trie
 thaw --- Not present in trie
 ```
+
+# Let's Play With TRIE
+
+TRIE Visualizer: [CLICK HERE ](https://www.cs.usfca.edu/~galles/visualization/Trie.html)
 
 # Resources
 
